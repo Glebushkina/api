@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме</title>
+</head>
+<body>
+    <h1>Резюме</h1>
+
+    <h1>№1 Github</h1>
+    <b>Имя:</b> {{ name }}<br>
+    <b>Email:</b> {{ email }}<br>
+
+    <h1>Достижения:</h1>
+    {% for repo in repos %}
+        <b>Репозиторий:</b> {{ repo.name }}<br>
+        <b>Описание:</b> {{ repo.description }}<br>
+        <b>Язык:</b> {{ repo.language }}<br>
+        <b>Ссылка:</b> <a href="{{ repo.link }}">{{ repo.link }}</a><br>
+        <hr>
+    {% endfor %}
+
+    <h1>№2 VK</h1>
+    <b>Школа:</b><br>
+    <ul>
+        {% for school_item in school %}
+            <li>{{ school_item.school }}</li>
+        {% endfor %}
+    </ul>
+
+    <b>Университет:</b><br>
+    <ul>
+        {% for university_item in university %}
+            <li>{{ university_item.university }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>№3 Zulip</h1>
+    <b>Дата регистрации:</b> {{ registration_date }}<br>
+    <b>Роль:</b> {{ role }}<br>
+    <b>Дата:</b> {{ datetime }}<br>
+</body>
+</html>
