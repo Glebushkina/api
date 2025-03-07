@@ -4,41 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Резюме</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1.title {
+            text-align: center;
+            border: 2px solid black;
+            padding: 10px;
+            display: inline-block;
+            margin: 0 auto;
+            width: auto;
+            background-color: white;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid black;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <h1>Резюме</h1>
+    <div class="header">
+        <h1 class="title">Резюме</h1>
+    </div>
 
-    <h1>№1 Github</h1>
-    <b>Имя:</b> {{ name }}<br>
-    <b>Email:</b> {{ email }}<br>
+    <div class="section">
+        <h1>№1 Github</h1>
+        <b>Имя:</b> {{ name }}<br>
+        <b>Email:</b> {{ email }}<br>
 
-    <h1>Достижения:</h1>
-    {% for repo in repos %}
-        <b>Репозиторий:</b> {{ repo.name }}<br>
-        <b>Описание:</b> {{ repo.description }}<br>
-        <b>Язык:</b> {{ repo.language }}<br>
-        <b>Ссылка:</b> <a href="{{ repo.link }}">{{ repo.link }}</a><br>
-        <hr>
-    {% endfor %}
+        <h2>Достижения:</h2>
+        {% for repo in repos %}
+            <b>Репозиторий:</b> {{ repo.name }}<br>
+            <b>Описание:</b> {{ repo.description }}<br>
+            <b>Язык:</b> {{ repo.language }}<br>
+            <b>Ссылка:</b> <a href="{{ repo.link }}">{{ repo.link }}</a><br>
+        {% endfor %}
+    </div>
 
-    <h1>№2 VK</h1>
-    <b>Школа:</b><br>
-    <ul>
+    <div class="section">
+        <h1>№2 VK</h1>
         {% for school_item in school %}
-            <li>{{ school_item.school }}</li>
+            <b>Школа: </b>{{ school_item.school }}<br>
         {% endfor %}
-    </ul>
-
-    <b>Университет:</b><br>
-    <ul>
         {% for university_item in university %}
-            <li>{{ university_item.university }}</li>
+            <b>Университет: </b>{{ university_item.university }}<br>
         {% endfor %}
-    </ul>
+    </div>
 
-    <h1>№3 Zulip</h1>
-    <b>Дата регистрации:</b> {{ registration_date }}<br>
-    <b>Роль:</b> {{ role }}<br>
-    <b>Дата:</b> {{ datetime }}<br>
+    <div class="section">
+        <h1>№3 Zulip</h1>
+        <b>Дата регистрации:</b> {{ registration_date }}<br>
+        <b>Роль:</b> {{ role }}<br>
+    </div>
+
+    <div class="footer">
+        <b>Дата:</b> {{ datetime }}<br>
+    </div>
 </body>
 </html>
